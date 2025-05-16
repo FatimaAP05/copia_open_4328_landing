@@ -204,6 +204,22 @@
     </footer>
 
 
-    <script src="./js/java.js"></script>
+    <script src="./js/java.js">
+
+    function cambiarTodosLosTextos(nuevoTexto) {
+        let elementos = document.querySelectorAll("h1, h2, h3, p, span");
+        elementos.forEach((elemento) => {
+            elemento.innerText = nuevoTexto;
+        });
+    }
+
+    document.querySelector(".check").addEventListener("change", function() {
+        let nuevoTexto = this.checked ? "Nuevo Texto en Español" : "New Text in English";
+        cambiarTodosLosTextos(nuevoTexto);
+    });
+
+
+
+    </script>
 </body>
 </html>
