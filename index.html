@@ -19,6 +19,7 @@
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#how-it-works"><span class="es">¿Cómo funciona?</span><span class="en" style="display:none;">How it works?</span></a></li>
             <li><a href="#questions">FAQ</a></li>
             <li><a class="ctn" href="#contact">Contact</a></li>
         </ul>
@@ -27,7 +28,7 @@
         <div class="swicth">
             <span class="en">English</span>
             <input type="checkbox" class="check"> 
-            <span class="es">Spanish</span>
+            <span class="es" style="color: #1b3a5c;">Spanish</span>
         </div>
     </nav>
 
@@ -63,6 +64,14 @@
         </div>
     </section>
     
+        // Establecer inglés como idioma por defecto al cargar la página
+        document.querySelectorAll('.en').forEach(el => {
+            el.style.display = 'inline-block';
+        });
+        document.querySelectorAll('.es').forEach(el => {
+            el.style.display = 'none';
+        });
+
     <!-- Services -->
     <section id="services" class="services">
         <h2>OUR SERVICES</h2>
@@ -106,6 +115,87 @@
                 </div>
             </div>
         </div> 
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="title">
+            <h2 class="es" style="display:none;">¿CÓMO FUNCIONA AGECARE?</h2>
+            <h2 class="en">HOW DOES AGECARE WORK?</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+                <h3 class="es" style="display:none;">Paso 1: Crea tu cuenta</h3>
+                <h3 class="en">Step 1: Create your account</h3>
+                <p class="es" style="display:none;">Regístrate como familiar, cuidador o personal médico. Accede con tu rol personalizado.</p>
+                <p class="en">Register as a family member, caregiver or medical staff. Access with your personalized role.</p>
+            </div>
+
+            <div class="step-connector"></div>
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <i class="fa-solid fa-id-card"></i>
+                </div>
+                <h3 class="es" style="display:none;">Paso 2: Agrega al residente</h3>
+                <h3 class="en">Step 2: Add the resident</h3>
+                <p class="es" style="display:none;">Completa la ficha del adulto mayor con su información médica y de contacto.</p>
+                <p class="en">Complete the senior's profile with their medical and contact information.</p>
+            </div>
+
+            <div class="step-connector"></div>
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <h3 class="es" style="display:none;">Paso 3: Monitorea el bienestar</h3>
+                <h3 class="en">Step 3: Monitor well-being</h3>
+                <p class="es" style="display:none;">Realiza seguimiento de su salud física y emocional con alertas en tiempo real.</p>
+                <p class="en">Track their physical and emotional health with real-time alerts.</p>
+            </div>
+
+            <div class="step-connector"></div>
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h3 class="es" style="display:none;">Paso 4: Conecta con la familia</h3>
+                <h3 class="en">Step 4: Connect with family</h3>
+                <p class="es" style="display:none;">Comparte información actualizada con familiares autorizados.</p>
+                <p class="en">Share updated information with authorized family members.</p>
+            </div>
+
+            <div class="step-connector"></div>
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="es" style="display:none;">Paso 5: Accede a reportes</h3>
+                <h3 class="en">Step 5: Access reports</h3>
+                <p class="es" style="display:none;">Revisa gráficos y reportes de salud, estado de ánimo y medicación.</p>
+                <p class="en">Review health charts and reports, mood status and medication.</p>
+            </div>
+
+            <div class="step-connector"></div>
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <i class="fa-solid fa-hands-helping"></i>
+                </div>
+                <h3 class="es" style="display:none;">Paso 6: Mejora la atención</h3>
+                <h3 class="en">Step 6: Improve care</h3>
+                <p class="es" style="display:none;">Usa los datos para optimizar rutinas, tratamientos y cuidados.</p>
+                <p class="en">Use data to optimize routines, treatments and care.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Questions -->
@@ -204,22 +294,21 @@
     </footer>
 
 
-    <script src="./js/java.js">
-
-    function cambiarTodosLosTextos(nuevoTexto) {
-        let elementos = document.querySelectorAll("h1, h2, h3, p, span");
-        elementos.forEach((elemento) => {
-            elemento.innerText = nuevoTexto;
-        });
-    }
-
+    <script src="./js/java.js"></script>
+    <script>
     document.querySelector(".check").addEventListener("change", function() {
-        let nuevoTexto = this.checked ? "Nuevo Texto en Español" : "New Text in English";
-        cambiarTodosLosTextos(nuevoTexto);
+        const isSpanish = this.checked;
+        const elementsES = document.querySelectorAll(".es");
+        const elementsEN = document.querySelectorAll(".en");
+
+        elementsES.forEach(element => {
+            element.style.display = isSpanish ? "block" : "none";
+        });
+
+        elementsEN.forEach(element => {
+            element.style.display = isSpanish ? "none" : "block";
+        });
     });
-
-
-
     </script>
 </body>
 </html>
