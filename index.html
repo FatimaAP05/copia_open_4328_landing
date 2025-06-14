@@ -19,7 +19,7 @@
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#how-it-works"><span class="es">¿Cómo funciona?</span><span class="en" style="display:none;">How it works?</span></a></li>
+            <li><a href="#how-it-works"><span class="es" style="display:none;">¿Cómo funciona?</span><span class="en" style="color: whitesmoke;">How it works?</span></a></li>
             <li><a href="#questions">FAQ</a></li>
             <li><a class="ctn" href="#contact">Contact</a></li>
         </ul>
@@ -64,14 +64,6 @@
         </div>
     </section>
     
-        // Establecer inglés como idioma por defecto al cargar la página
-        document.querySelectorAll('.en').forEach(el => {
-            el.style.display = 'inline-block';
-        });
-        document.querySelectorAll('.es').forEach(el => {
-            el.style.display = 'none';
-        });
-
     <!-- Services -->
     <section id="services" class="services">
         <h2>OUR SERVICES</h2>
@@ -296,17 +288,27 @@
 
     <script src="./js/java.js"></script>
     <script>
+    // Establecer inglés como idioma por defecto al cargar la página
+    window.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('.en').forEach(el => {
+            el.style.display = 'inline-block';
+        });
+        document.querySelectorAll('.es').forEach(el => {
+            el.style.display = 'none';
+        });
+    });
+
     document.querySelector(".check").addEventListener("change", function() {
         const isSpanish = this.checked;
         const elementsES = document.querySelectorAll(".es");
         const elementsEN = document.querySelectorAll(".en");
 
         elementsES.forEach(element => {
-            element.style.display = isSpanish ? "block" : "none";
+            element.style.display = isSpanish ? "inline-block" : "none";
         });
 
         elementsEN.forEach(element => {
-            element.style.display = isSpanish ? "none" : "block";
+            element.style.display = isSpanish ? "none" : "inline-block";
         });
     });
     </script>
